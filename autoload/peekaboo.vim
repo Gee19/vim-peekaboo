@@ -34,6 +34,21 @@ let s:CTRL_R = "\<c-r>"
 
 let s:buf_peekaboo = 0
 
+function! s:floating_window() abort
+    if(!has('nvim'))
+        split
+        new
+    else
+        let width = float2nr(&columns * 0.6)
+        let height = float2nr(&lines * 0.6)
+        let top = ((&lines - height) / 2) - 1
+        let left = (&columns - width) / 2
+        let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
+        let s:buf = nvim_create_buf(v:false, v:true)
+        call nvim_open_win(s:buf, v:true, opts)
+    endif
+endfunction
+
 " Returns true if timed out
 function! s:wait_with_timeout(timeout)
   let timeout = a:timeout
@@ -85,7 +100,11 @@ endfunction
 " Opens peekaboo window
 function! s:open(mode)
   let [s:buf_current, s:buf_alternate, s:winrestcmd] = [@%, @#, winrestcmd()]
-  execute get(g:, 'peekaboo_window', s:default_window)
+  if get(g:, 'peekaboo_window') == 'float'
+    execute "call s:floating_window()"
+  else
+    execute get(g:, 'peekaboo_window', s:default_window)
+  endif
   let s:buf_peekaboo = bufnr('')
   setlocal nonumber buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
   \ modifiable statusline=>\ Registers nocursorline nofoldenable

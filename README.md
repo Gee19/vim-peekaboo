@@ -39,9 +39,13 @@ Customization
 
 Differences from HEAD
 -------
-- Fix conflict with repeat/dot command ([mg979](https://github.com/mg979)) (seems to break macros, disabled for now)
-- Add vim help docs & optional special or read-only registers ([Konfekt](https://github.com/Konfekt))
+- Add `float` option to `g:peekaboo_window` (fixes #74, borrowed from #68)
 - Fix conflict with lesspace
+
+Working on
+-------
+- Add vim help docs & optional special or read-only registers ([Konfekt](https://github.com/Konfekt))
+- Fix conflict with repeat/dot command ([mg979](https://github.com/mg979)) (seems to break macros, disabled for now)
 
 License
 -------
