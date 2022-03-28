@@ -39,13 +39,15 @@ Customization
 
 Differences from HEAD
 -------
-- Add `float` option to `g:peekaboo_window` (fixes #74, borrowed from #68, breaks vim support completely?)
+- Add `float` option to `g:peekaboo_window` (fixes #74, borrowed from #68)
 - Add vim help docs & optional special or read-only registers ([Konfekt](https://github.com/Konfekt))
-- Fix foldcolumn when not using float (#77)
+- Fix foldcolumn (#77)
 - Fix conflict with lesspace
 
 Working on
 -------
+- Add vim8 popup window support
+- Float changes don't respect compact boolean
 - Fix conflict with repeat/dot command ([mg979](https://github.com/mg979)) (seems to break macros, disabled for now)
 
 License
