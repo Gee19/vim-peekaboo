@@ -39,10 +39,11 @@ Customization
 
 Differences from HEAD
 -------
-- Add `float` option to `g:peekaboo_window` (fixes #74, borrowed from #68)
+- Add `float` option to `g:peekaboo_window` (borrowed from #68)
 - Add vim help docs & optional special or read-only registers ([Konfekt](https://github.com/Konfekt))
 - Fix foldcolumn (#77)
 - Fix conflict with lesspace
+- Fix cmdline resize bug, special thanks to chemzqm for the help (#74 and #83)
 
 Working on
 -------

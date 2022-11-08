@@ -98,6 +98,16 @@ endfunction
 
 " Opens peekaboo window
 function! s:open(mode)
+  " Close floats before setting winrestcmd, fixes the infamous cmdline resize bug?
+  if pumvisible()
+    call popup_clear(1)
+  endif
+  if &runtimepath =~ 'coc.nvim'
+    if coc#float#has_float()
+      call coc#float#close_all()
+    endif
+  endif
+
   let [s:buf_current, s:buf_alternate, s:winrestcmd] = [@%, @#, winrestcmd()]
   if get(g:, 'peekaboo_window') == 'float'
     execute "call s:floating_window()"
