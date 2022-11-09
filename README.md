@@ -29,7 +29,7 @@ Customization
 
 | Config                  | Default                 | Description                                       |
 | ------                  | -------                 | -----------                                       |
-| `g:peekaboo_window`     | `vert bo 30new`         | Command for creating Peekaboo window              |
+| `g:peekaboo_window`     | nvim: `float` vim: `vert bo 30new` | Command for creating Peekaboo window   |
 | `g:peekaboo_delay`      | 0 (ms)                  | Delay opening of Peekaboo window                  |
 | `g:peekaboo_compact`    | 0 (boolean)             | Compact display                                   |
 | `g:peekaboo_prefix`     | Empty (string)          | Prefix for key mapping (e.g. `<leader>`)          |
